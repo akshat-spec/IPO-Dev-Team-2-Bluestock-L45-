@@ -1,42 +1,28 @@
-/* ==========================================================================
-   Base Styles
+/* ========================================================================== 
+   Theme Variables 
    ========================================================================== */
+:root {
+  --blue: #414BEA;
+  --dark-grey: #5A5858;
+  --black: #000;
+  --light-grey: #f9f9f9;
+  --primary-btn: #004aad;
+  --primary-font: 'Poppins', sans-serif;
+}
 
+/* ========================================================================== 
+   Base Styles 
+   ========================================================================== */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
+  font-family: var(--primary-font);
+  background-color: var(--light-grey);
   margin: 0;
   padding: 0;
 }
 
-
-
-/* ==========================================================================
-   Navbar
+/* ========================================================================== 
+   Typography Utilities 
    ========================================================================== */
-
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.navbar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.navbar .btn-outline-primary {
-  border-radius: 6px;
-}
-
-.navbar .btn-primary {
-  border-radius: 6px;
-}
-
-/* ==========================================================================
-   Typography Utilities
-   ========================================================================== */
-
 .font-18 {
   font-size: 18px;
   line-height: 1;
@@ -44,7 +30,7 @@ body {
 
 .font-24 {
   font-size: 24px;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .font-regular {
@@ -60,21 +46,51 @@ body {
 }
 
 .text-grey-dark {
-  color: #5A5858;
+  color: var(--dark-grey);
 }
 
 .text-black {
-  color: #000;
+  color: var(--black);
 }
 
 .text-primary-blue {
-  color: #414BEA;
+  color: var(--blue) !important;
 }
 
-/* ==========================================================================
-   Upcoming IPO Section
-   ========================================================================== */
+/* Optional: label-value text pair styling */
+.label-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark-grey);
+}
 
+.value-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* ========================================================================== 
+   Navbar 
+   ========================================================================== */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.navbar .btn-outline-primary,
+.navbar .btn-primary {
+  border-radius: 6px;
+}
+
+/* ========================================================================== 
+   Upcoming IPO Section 
+   ========================================================================== */
 .ipo-card {
   border-radius: 16px;
   background-color: #ffffff;
@@ -94,32 +110,12 @@ body {
   border-radius: 8px;
 }
 
-.info-box {
-  text-align: center;
-}
-
-.info-box h6 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-  color: #333;
-  height: 27px;
-}
-
-.info-box p {
-  font-size: 15px;
-  margin: 0;
-  color: #555;
-}
-
-
-/* ==========================================================================
-   FAQ Section
+/* ========================================================================== 
+   FAQ Section 
    ========================================================================== */
-
 .accordion-button:not(.collapsed) {
   background-color: #f0f4ff;
-  color: #004aad;
+  color: var(--primary-btn);
   font-weight: bold;
 }
 
@@ -136,11 +132,9 @@ body {
   margin-bottom: 0.5rem;
 }
 
-
-/* ==========================================================================
-   Footer
+/* ========================================================================== 
+   Footer 
    ========================================================================== */
-
 footer {
   background-color: #fff;
   border-top: 1px solid #ddd;
@@ -153,11 +147,9 @@ footer p {
   font-weight: 500;
 }
 
-
-/* ==========================================================================
-   Buttons (RHP/DRHP)
+/* ========================================================================== 
+   Buttons (RHP/DRHP) 
    ========================================================================== */
-
 .btn-sm {
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;
@@ -165,12 +157,12 @@ footer p {
 }
 
 .btn-outline-primary {
-  color: #004aad;
-  border-color: #004aad;
+  color: var(--primary-btn);
+  border-color: var(--primary-btn);
 }
 
 .btn-outline-primary:hover {
-  background-color: #004aad;
+  background-color: var(--primary-btn);
   color: #fff;
 }
 
@@ -184,12 +176,9 @@ footer p {
   border-color: #bd2130;
 }
 
-
-/* ==========================================================================
-   Responsive Overrides (Optional)
+/* ========================================================================== 
+   Responsive Overrides 
    ========================================================================== */
-
-/* Make company name smaller on very small screens */
 @media (max-width: 576px) {
   .ipo-card h5 {
     font-size: 1rem;
