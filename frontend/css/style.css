@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.navbar .btn-outline-primary {
+  border-radius: 6px;
+}
+
+.navbar .btn-primary {
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+
+.font-18 {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.font-24 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-grey-dark {
+  color: #5A5858;
+}
+
+.text-black {
+  color: #000;
+}
+
+.text-primary-blue {
+  color: #414BEA;
+}
+
+/* ==========================================================================
+   Upcoming IPO Section
+   ========================================================================== */
+
+.ipo-card {
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.ipo-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.info-box {
+  text-align: center;
+}
+
+.info-box h6 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+  height: 27px;
+}
+
+.info-box p {
+  font-size: 15px;
+  margin: 0;
+  color: #555;
+}
+
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+
+.accordion-button:not(.collapsed) {
+  background-color: #f0f4ff;
+  color: #004aad;
+  font-weight: bold;
+}
+
+.accordion-button {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.accordion-body ul {
+  padding-left: 1.2rem;
+}
+
+.accordion-body li {
+  margin-bottom: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+
+/* ==========================================================================
+   Buttons (RHP/DRHP)
+   ========================================================================== */
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.btn-outline-primary {
+  color: #004aad;
+  border-color: #004aad;
+}
+
+.btn-outline-primary:hover {
+  background-color: #004aad;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+
+/* ==========================================================================
+   Responsive Overrides (Optional)
+   ========================================================================== */
+
+/* Make company name smaller on very small screens */
+@media (max-width: 576px) {
+  .ipo-card h5 {
+    font-size: 1rem;
+  }
+}
