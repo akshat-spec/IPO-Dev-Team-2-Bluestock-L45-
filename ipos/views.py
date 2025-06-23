@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def ipo_page(request):
+    return render(request, 'ipo-page.html')
