@@ -59,552 +59,62 @@
         <!-- You can extract this into a template later for Django integration -->
 
         <!-- START: IPO CARD -->
-        <!-- COPY THIS BLOCK 12 TIMES -->
+       
 
-        <!-- Example loop (simulate 12 cards) -->
-        <!-- In actual Django template, you'd use  -->
-        <!-- For now, manually repeat the block 12 times -->
 
-        <!-- IPO Card 1-->
+        <!-- IPO Loop Starts -->
+        {% for ipo in ipos %}
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card ipo-card p-3 shadow-sm h-100">
             <!-- Logo and Company Name -->
             <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
+              {% if ipo.logo %}
+              <img src="{{ ipo.logo.url }}" alt="{{ ipo.company_name }} Logo" class="company-logo me-3" width="50">
+              {% else %}
+              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Default Logo" class="company-logo me-3"
+                width="50">
+              {% endif %}
+              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">{{ ipo.company_name }}</h4>
             </div>
 
             <!-- IPO Details -->
             <div class="row g-2">
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.price_band }}</p>
               </div>
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.open_date }}</p>
               </div>
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.close_date }}</p>
               </div>
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.issue_size }}</p>
               </div>
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.issue_type }}</p>
               </div>
               <div class="col-4 text-center">
                 <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
+                <p class="mb-0 fw-semibold text-dark">{{ ipo.listing_date }}</p>
               </div>
-            </div>
 
-            <!-- Buttons -->
+              <!-- Buttons -->
+            </div>
             <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
+              <a href="{{ ipo.rhp_pdf }}" class="btn btn-outline-primary btn-sm" target="_blank">RHP</a>
+              <a href="{{ ipo.drhp_pdf }}" class="btn btn-danger btn-sm" target="_blank">DRHP</a>
             </div>
           </div>
         </div>
+        {% endfor %}
+        <!-- IPO Loop Ends -->
 
-
-        <!-- IPO Card 2-->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 3 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 4 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 5 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 6 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 7 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 8 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 9 -->
-         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 10 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 11 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IPO Card 12 -->
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="card ipo-card p-3 shadow-sm h-100">
-            <!-- Logo and Company Name -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="{% static 'assets/ipo-page/ipo-company1.png' %}" alt="Company Logo" class="company-logo me-3" width="50">
-              <h4 class="mb-0 font-24 font-medium mb-0 text-primary">Nova Agritech Ltd.</h4>
-            </div>
-
-            <!-- IPO Details -->
-            <div class="row g-2">
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">PRICE BAND</h6>
-                <p class="mb-0 fw-semibold text-dark">₹100 - ₹120</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">OPEN</h6>
-                <p class="mb-0 fw-semibold text-dark">May 30</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">CLOSE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 2</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE SIZE</h6>
-                <p class="mb-0 fw-semibold text-dark">₹300 Cr</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">ISSUE TYPE</h6>
-                <p class="mb-0 fw-semibold text-dark">Book Built</p>
-              </div>
-              <div class="col-4 text-center">
-                <h6 class="text-secondary mb-1">LISTING DATE</h6>
-                <p class="mb-0 fw-semibold text-dark">June 10</p>
-              </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-outline-primary btn-sm">RHP</button>
-              <button class="btn btn-danger btn-sm">DRHP</button>
-            </div>
-          </div>
-        </div>
 
 
 

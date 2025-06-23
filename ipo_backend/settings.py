@@ -121,7 +121,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'ipos' / 'static',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Configure Media Settings
+##This tells Django where uploaded media (like images) will be stored and how to access them
+MEDIA_URL = '/media/'  ##This is the URL prefix for accessing uploaded files via browser.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  ##This tells Django: "Save all uploaded files in a folder named media/ inside the base directory of your project

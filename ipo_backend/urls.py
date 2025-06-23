@@ -21,3 +21,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ipos.urls')),  # include ipos app URLs
 ]
+
+##By default, Django doesn’t serve uploaded files (like images) in development.
+#Serve Media Files in Development
+##uploaded images will be served when running the development server.
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+''''| Code                                | What it means                                                              |
+| ----------------------------------- | -------------------------------------------------------------------------- |
+| `static(settings.MEDIA_URL, ...)`   | Tells Django to create a route like `/media/...`                           |
+| `document_root=settings.MEDIA_ROOT` | Connects that route to the folder where files are stored (`media/` folder) |
+'''
+
